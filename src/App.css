@@ -1,42 +1,243 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root styling with modern typography and design refinements */
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  /* Enhanced light blue gradient background */
+  background: linear-gradient(135deg, #a0d8ef 0%, #f5f5f5 100%); 
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #646cff;
+  --hover-primary-color: #535bf2;
+  --background-color-dark: #242424;
+  --background-color-light: #ffffff;
+  --text-color-dark: rgba(255, 255, 255, 0.87);
+  --text-color-light: #213547;
+}
+
+/* General anchor (link) styling with transitions */
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+a:hover {
+  color: var(--hover-primary-color);
+  text-shadow: 0px 2px 8px rgba(83, 91, 242, 0.4);
+}
+
+/* Body enhancements for layout and background */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a0d8ef 0%, #f5f5f5 100%);
+  transition: background-color 0.3s ease;
+}
+
+h1 {
+  font-size: 3rem; /* Use rem units for better scalability */
+  line-height: 1.2;
+  margin-bottom: 1em;
+  text-align: center;
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.05);
+}
+
+/* Button styling with focus on accessibility and UX */
+button {
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 0.75em 1.5em;
+  font-size: 1rem; /* Use rem for consistent sizing */
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: var(--text-color-dark);
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Include box-shadow in transition */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--hover-primary-color);
+  transform: translateY(-4px); /* More pronounced lift */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Media queries for light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--text-color-light);
+    background-color: var(--background-color-light);
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+    color: var(--text-color-light);
+  }
+
+  button:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--hover-primary-color);
+    transform: translateY(-4px); /* Slightly more lift */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+  }
+}
+
+/* Additional utilities for animations and smooth transitions */
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* App.css */
+
+.assistant-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.assistant-button:hover {
+  background-color: #0056b3;
+}
+
+.assistant-window {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  max-width: calc(100% - 40px);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  flex-direction: column;
+}
+
+.assistant-window.open {
+  display: flex; /* Show when open */
+}
+
+.assistant-header {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.assistant-content {
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 300px; /* Limit height of chat content */
+}
+
+.assistant-input {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top: none;
+}
+
+
+
+.shadow-lg {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.rounded-lg {
+  border-radius: 12px;
+}
+
+/* Enhancements for text and container layout */
+.text-center {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem; /* Adjusted for smaller screens */
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  button {
+    padding: 0.5em 1em; /* Adjusted padding */
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+
+  .container {
+    padding: 15px; /* Less padding for smaller screens */
   }
 }
 
-.card {
-  padding: 2em;
-}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem; /* Smaller title for very small screens */
+  }
 
-.read-the-docs {
-  color: #888;
+  button {
+    font-size: 0.8rem; /* Further reduced font size */
+  }
 }
