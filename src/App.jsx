@@ -134,7 +134,7 @@ function App() {
         Startdust AI
       </h1>
       
-      {/* Dark Mode Toggle Button */}
+ 
       <button
         className="mb-4 px-4 py-2 text-sm font-semibold text-white rounded bg-blue-500 hover:bg-blue-600"
         onClick={toggleDarkMode}
