@@ -129,12 +129,12 @@ function App() {
   };
 
   return (
-    <div className={`p-6 max-w-lg mx-auto ${darkMode ? 'dark:bg-gray-800 text-white' : 'bg-white text-black'} rounded-lg shadow-md`}>
+    <div className={`p-6 max-w-lg md:w-[500px] mx-auto ${darkMode ? 'dark:bg-gray-800 text-white' : 'bg-white text-black'} rounded-lg shadow-md`}>
       <h1 className="text-4xl font-extrabold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-blue-300 dark:to-indigo-400 shadow-md">
         Startdust AI
       </h1>
       
- 
+      {/* Dark Mode Toggle Button */}
       <button
         className="mb-4 px-4 py-2 text-sm font-semibold text-white rounded bg-blue-500 hover:bg-blue-600"
         onClick={toggleDarkMode}
