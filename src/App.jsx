@@ -58,7 +58,7 @@ function App() {
 
       setTimeout(() => {
         axios({
-          url: 'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateText?key=$AIzaSyAoP9eQESTdI4eQzPf9m19YfSHINbOQdv8',// Use your actual API key here
+          url: 'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateText?key=AIzaSyAoP9eQESTdI4eQzPf9m19YfSHINbOQdv8',// Use your actual API key here
           method: 'post',
           data: {
             contents: [{ parts: [{ text: question }] }],
